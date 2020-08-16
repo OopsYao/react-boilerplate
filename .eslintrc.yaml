@@ -1,0 +1,17 @@
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  # eslint-config-prettier
+  - prettier
+  - prettier/react
+env:
+  browser: true
+  node: true
+  es2020: true
+parser: '@babel/eslint-parser'
+plugins:
+  - react
+settings:
+  # https://github.com/yannickcr/eslint-plugin-react#configuration
+  react:
+    version: detect
