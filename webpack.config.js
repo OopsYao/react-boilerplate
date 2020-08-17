@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin') // Extract css f
 const TerserJSPlugin = require('terser-webpack-plugin') // Minify js file
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin') // Minify css file
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = (env, options) => {
   const onProduction = options.mode === 'production'
@@ -59,6 +60,7 @@ module.exports = (env, options) => {
       }),
       new MiniCssExtractPlugin(),
       new CleanWebpackPlugin(),
+      new FaviconsWebpackPlugin('./src/logo.svg'),
     ],
   }
 }
