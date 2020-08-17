@@ -41,14 +41,9 @@ module.exports = (env, options) => {
         {
           test: /\.css$/,
           use: [
-            {
-              // See https://github.com/webpack-contrib/mini-css-extract-plugin#advanced-configuration-example
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                // only enable hot in development
-                hmr: !onProduction,
-              },
-            },
+            // See https://github.com/webpack-contrib/mini-css-extract-plugin#advanced-configuration-example
+            // TODO MiniCssExtract HMR not working
+            onProduction ? MiniCssExtractPlugin.loader : 'style-loader',
             { loader: 'css-loader', options: { importLoaders: 1 } },
             'postcss-loader',
           ],
