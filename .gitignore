@@ -4,3 +4,4 @@ dist
 
 # Webpack bundle analysis
 stats.json
+yarn-error.log
