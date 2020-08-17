@@ -6,14 +6,22 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = (env, options) => {
   const onProduction = options.mode === 'production'
+  // Mute some verbose info. Apply this to `stat` and `devServer` field
+  // See https://webpack.js.org/configuration/stats/
+  const stats = {
+    modules: false,
+    children: false,
+  }
   return {
     entry: './src/index.js',
     mode: 'development',
     devtool: !onProduction && 'eval-source-map',
+    stats,
     devServer: {
       // https://webpack.js.org/configuration/dev-server/
       open: true,
       hot: true,
+      stats,
     },
     optimization: {
       // See https://webpack.js.org/plugins/mini-css-extract-plugin/#minimizing-for-production
