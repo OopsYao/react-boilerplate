@@ -4,3 +4,11 @@ dist
 
 # Webpack bundle analysis
 stats.json
+
+# Yarn v2
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*

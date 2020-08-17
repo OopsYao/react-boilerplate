@@ -3,3 +3,5 @@ dist
 public
 
 yarn.lock
+.pnp.*
+.yarn/*
