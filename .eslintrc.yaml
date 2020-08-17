@@ -15,6 +15,3 @@ settings:
   # https://github.com/yannickcr/eslint-plugin-react#configuration
   react:
     version: detect
-ignorePatterns:
-  - '.pnp.*'
-  - '.yarn/*'
