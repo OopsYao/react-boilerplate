@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const TerserJSPlugin = require('terser-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin') // Extract css file
+const TerserJSPlugin = require('terser-webpack-plugin') // Minify js file
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin') // Minify css file
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = (env, options) => {
@@ -11,7 +11,7 @@ module.exports = (env, options) => {
     mode: 'development',
     devtool: !onProduction && 'eval-source-map',
     devServer: {
-      clientLogLevel: 'silent',
+      // https://webpack.js.org/configuration/dev-server/
       open: true,
       hot: true,
     },
