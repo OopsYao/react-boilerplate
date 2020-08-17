@@ -1,3 +1,6 @@
+const path = require('path')
+const relative = (p) => path.resolve(__dirname, p)
+
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin') // Extract css file
 const TerserJSPlugin = require('terser-webpack-plugin') // Minify js file
@@ -14,7 +17,7 @@ module.exports = (env, options) => {
     children: false,
   }
   return {
-    entry: './src/index.js',
+    entry: relative('./src/index.js'),
     mode: 'development',
     devtool: !onProduction && 'eval-source-map',
     stats,
@@ -56,11 +59,11 @@ module.exports = (env, options) => {
       new HtmlWebpackPlugin({
         hash: true,
         title: 'React Boilerplate',
-        template: './src/index.html',
+        template: relative('./src/index.html'),
       }),
       new MiniCssExtractPlugin(),
       new CleanWebpackPlugin(),
-      new FaviconsWebpackPlugin('./src/logo.svg'),
+      new FaviconsWebpackPlugin(relative('./src/logo.svg')),
     ],
   }
 }
