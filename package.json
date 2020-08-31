@@ -20,7 +20,7 @@
     "eslint-loader": "^4.0.2",
     "eslint-plugin-react": "^7.20.6",
     "favicons-webpack-plugin": "^4.2.0",
-    "html-webpack-plugin": "^4.3.0",
+    "html-webpack-plugin": "^4.4.1",
     "husky": ">=4",
     "jest": "^26.4.2",
     "lint-staged": ">=10",
