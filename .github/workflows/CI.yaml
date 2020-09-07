@@ -11,6 +11,8 @@ jobs:
           node-version: 12
           registry-url: https://registry.yarnpkg.com
       - run: yarn install
+      - name: Yarn cache relevant
+        uses: c-hive/gha-yarn-cache@v1
       - run: yarn build
       - run: yarn test
       - name: Upload artifacts
