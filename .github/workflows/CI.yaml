@@ -1,36 +1,24 @@
 name: CI
-on: [push]
+on: push
 jobs:
   build:
     name: Build Boilerplate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://registry.yarnpkg.com
-      - run: yarn install
+      - name: Install dependencies
+        run: yarn install
       - name: Yarn cache relevant
         uses: c-hive/gha-yarn-cache@v1
-      - run: yarn build
-      - run: yarn test
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: built-site
-          path: dist
-  publish:
-    name: Publish site to Netlify
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: built-site
-          path: dist
+      - name: Unit test
+        run: yarn test
+      - name: Build
+        run: yarn build
       - name: Publish
         if: github.ref=='refs/heads/master' # Avoid PR deploy
         uses: netlify/actions/cli@master
