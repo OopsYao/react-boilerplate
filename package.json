@@ -41,10 +41,5 @@
     "build": "webpack --mode production",
     "build:stats": "webpack --mode production --profile --json > stats.json",
     "test": "jest"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
